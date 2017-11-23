@@ -12,10 +12,10 @@ public class InValidator {
     //дата рождения студента
     private static String birthDateRegExp = "^([0-2]?[0-9]|3[0-1]).(0[0-9]|1[0-2]).(19|20)\\d{2}$";
     //телефон студента
-    private static String phoneRegExp = "^\\(\\d{3}\\) ?\\d{7}";
+    private static String phoneRegExp = "^\\+\\d{2,3} ?\\(\\d{3}\\) ?(\\d ?\\d ?\\d ?\\d ?\\d ?\\d ?\\d)";
     //адрес студента (улица, дом, квартира)
-    private static String addressRegExpByTask = "^[A-Z][a-z]*\\s(str|blvd|square|ave), \\d{1,3}, \\d{1,4}";
-    private static String getAddressRegExpUS = "^\\d{1,5}\\s[A-Z][a-z]*\\s(St|Blvd|Square|Ave)\\s[A-Z][a-z]*,\\s[A-Z]{2}\\s\\d{5},\\sUS";
+    private static String addressRegExpByTask = "^[A-Z][a-z]* (str|blvd|square|ave), \\d{1,3}, \\d{1,4}";
+    //private static String getAddressRegExpUS = "^\\d{1,5}\\s[A-Z][a-z]*\\s(St|Blvd|Square|Ave)\\s[A-Z][a-z]*,\\s[A-Z]{2}\\s\\d{5},\\sUS";
 
     public static boolean isLastNameValid(String lastName){
         Pattern pattern = Pattern.compile(InValidator.lastNameRegExp);
@@ -56,4 +56,29 @@ public class InValidator {
         }
     }
 
+    public static boolean isPhoneValid(String phoneNumber){
+        Pattern pattern = Pattern.compile(InValidator.phoneRegExp);
+        Matcher matcher = pattern.matcher(phoneNumber);
+
+        if(matcher.find()){
+            System.out.println("phone number is OK");
+            return true;
+        } else {
+            System.out.println("Error! Recheck phone number");
+            return false;
+        }
+    }
+
+    public static boolean isAdressValid(String address){
+        Pattern pattern = Pattern.compile(InValidator.addressRegExpByTask);
+        Matcher matcher = pattern.matcher(address);
+
+        if(matcher.find()){
+            System.out.println("address is OK");
+            return true;
+        } else {
+            System.out.println("Error! Recheck address");
+            return false;
+        }
+    }
 }

@@ -8,7 +8,9 @@ public class TestField {
         String str = "Liolo";
         InValidator.isLastNameValid(str);
         InValidator.isFirstNameValid(str);
-        InValidator.isBirthDateValid("33.11.2095");
+        InValidator.isBirthDateValid("31.11.2095");
+        InValidator.isPhoneValid("+38 (098) 5 67 870 5");
+        InValidator.isAdressValid("Chkalova str, 123, 2348967");
 
     }
 }
