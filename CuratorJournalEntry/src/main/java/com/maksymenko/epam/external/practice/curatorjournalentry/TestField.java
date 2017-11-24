@@ -1,7 +1,6 @@
 package com.maksymenko.epam.external.practice.curatorjournalentry;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.maksymenko.epam.external.practice.curatorjournalentry.controller.InValidator;
 
 public class TestField {
     public static void main(String[] args) {

@@ -6,20 +6,14 @@ import java.util.List;
 
 public class Menu {
     public static void greeting(){
-        System.out.println("            Welcome to Curator Journal");
+        System.out.println(ProgramStrings.welcome);
     }
 
     public static void commands(){
-        System.out.println("    Commands:");
-        System.out.println("add - to add new student");
-        System.out.println("journal - to show all notes from journal");
-        System.out.println("ru - to russian interface");
-        System.out.println("eng - to english interface");
-        System.out.println("exit - to close program");
-        System.out.println(">");
+        System.out.println(ProgramStrings.commands);
     }
 
-    public static void invitation(){
+    public static void inviteAddNewStudent(){
         System.out.println("Please, enter the command");
     }
 

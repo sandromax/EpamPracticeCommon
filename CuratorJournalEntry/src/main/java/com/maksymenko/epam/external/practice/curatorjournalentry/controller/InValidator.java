@@ -1,4 +1,4 @@
-package com.maksymenko.epam.external.practice.curatorjournalentry;
+package com.maksymenko.epam.external.practice.curatorjournalentry.controller;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -39,6 +39,7 @@ public class Controller {
     }
 
     public  void enteringData(){
-        
+        Scanner enter = new Scanner(System.in);
+        String userEntrey = enter.next();
     }
 }
