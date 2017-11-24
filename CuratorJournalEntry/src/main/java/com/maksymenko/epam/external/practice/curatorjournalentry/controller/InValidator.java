@@ -2,19 +2,19 @@ package com.maksymenko.epam.external.practice.curatorjournalentry.controller;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import static com.maksymenko.epam.external.practice.curatorjournalentry.view.ProgramStrings.*;
 
 public class InValidator {
 
-    //фамилия студента
-    private static String lastNameRegExp = "^[A-Z][a-z]*$";
-    //имя студента
-    private static String firstNameRegExp = "^[A-z][a-z]*$";
-    //дата рождения студента
-    private static String birthDateRegExp = "^([0-2]?[0-9]|3[0-1]).(0[0-9]|1[0-2]).(19|20)\\d{2}$";
-    //телефон студента
-    private static String phoneRegExp = "^\\+\\d{2,3} ?\\(\\d{3}\\) ?(\\d ?\\d ?\\d ?\\d ?\\d ?\\d ?\\d)";
-    //адрес студента (улица, дом, квартира)
-    private static String addressRegExpByTask = "^[A-Z][a-z]* (str|blvd|square|ave), \\d{1,3}, \\d{1,4}";
+    public static String lastNameRegExp = "^[A-Z][a-z]*$";
+
+    public static String firstNameRegExp = "^[A-Z][a-z]*$";
+
+    public static String birthDateRegExp = "^([0-2]?[0-9]|3[0-1]).(0[0-9]|1[0-2]).(19|20)\\d{2}$";
+
+    public static String phoneRegExp = "^\\+\\d{2,3} ?\\(\\d{3}\\) ?(\\d ?\\d ?\\d ?\\d ?\\d ?\\d ?\\d)";
+
+    public static String addressRegExpByTask = "^[A-Z][a-z]* (str|blvd|square|ave), \\d{1,3}, \\d{1,4}";
     //private static String getAddressRegExpUS = "^\\d{1,5}\\s[A-Z][a-z]*\\s(St|Blvd|Square|Ave)\\s[A-Z][a-z]*,\\s[A-Z]{2}\\s\\d{5},\\sUS";
 
     public static boolean isLastNameValid(String lastName){
@@ -22,10 +22,10 @@ public class InValidator {
         Matcher matcher = pattern.matcher(lastName);
 
         if(matcher.find()){
-            System.out.println("Last name is OK");
+            System.out.println(VALIDATION_LAST_NAME_OK);
             return true;
         } else {
-            System.out.println("Error! Recheck last name");
+            System.out.println(VALIDATION_LAST_NAME_ERROR);
             return false;
         }
     }
@@ -35,10 +35,10 @@ public class InValidator {
         Matcher matcher = pattern.matcher(firstName);
 
         if(matcher.find()){
-            System.out.println("First name is OK");
+            System.out.println(VALIDATION_FIRST_NAME_OK);
             return true;
         } else {
-            System.out.println("Error! Recheck first name");
+            System.out.println(VALIDATION_FIRST_NAME_ERROR);
             return false;
         }
     }
@@ -48,10 +48,10 @@ public class InValidator {
         Matcher matcher = pattern.matcher(birthDate);
 
         if(matcher.find()){
-            System.out.println("Birth date is OK");
+            System.out.println(VALIDATION_BIRTH_DATE_OK);
             return true;
         } else {
-            System.out.println("Error! Recheck Birth date");
+            System.out.println(VALIDATION_BIRTH_DATE_ERROR);
             return false;
         }
     }
@@ -61,10 +61,10 @@ public class InValidator {
         Matcher matcher = pattern.matcher(phoneNumber);
 
         if(matcher.find()){
-            System.out.println("phone number is OK");
+            System.out.println(VALIDATION_PHONE_OK);
             return true;
         } else {
-            System.out.println("Error! Recheck phone number");
+            System.out.println(VALIDATION_PHONE_ERROR);
             return false;
         }
     }
@@ -74,10 +74,10 @@ public class InValidator {
         Matcher matcher = pattern.matcher(address);
 
         if(matcher.find()){
-            System.out.println("address is OK");
+            System.out.println(VALIDATION_ADDRESS_OK);
             return true;
         } else {
-            System.out.println("Error! Recheck address");
+            System.out.println(VALIDATION_ADDRESS_ERROR);
             return false;
         }
     }

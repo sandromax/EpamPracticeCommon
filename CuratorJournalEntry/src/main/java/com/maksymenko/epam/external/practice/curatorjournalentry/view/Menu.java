@@ -1,7 +1,7 @@
 package com.maksymenko.epam.external.practice.curatorjournalentry.view;
 
 import com.maksymenko.epam.external.practice.curatorjournalentry.model.Entry;
-
+import static com.maksymenko.epam.external.practice.curatorjournalentry.view.ProgramStrings.*;
 import java.util.List;
 
 public class Menu {
@@ -14,7 +14,24 @@ public class Menu {
     }
 
     public static void inviteAddNewStudent(){
-        System.out.println("Please, enter the command");
+        System.out.println(inviteAddNewStudent);
+        System.out.println(inviteLastName);
+    }
+
+    public static void inviteAddFirstName(){
+        System.out.println(inviteFirstName);
+    }
+
+    public static void inviteAddBirthDate(){
+        System.out.println(inviteBirthDate);
+    }
+
+    public static void inviteAddPhone(){
+        System.out.println(invitePhone);
+    }
+
+    public static void inviteAddAddress(){
+        System.out.println(inviteAddress);
     }
 
     public static void showJournal(List<Entry> journal){
