@@ -2,24 +2,23 @@ package com.maksymenko.epam.external.practice.curatorjournalentry.controller;
 
 import com.maksymenko.epam.external.practice.curatorjournalentry.model.Entry;
 import com.maksymenko.epam.external.practice.curatorjournalentry.model.Storage;
-import static com.maksymenko.epam.external.practice.curatorjournalentry.view.Menu.*;
-import static com.maksymenko.epam.external.practice.curatorjournalentry.controller.InValidator.*;
-import static com.maksymenko.epam.external.practice.curatorjournalentry.view.ProgramStrings.*;
+import com.maksymenko.epam.external.practice.curatorjournalentry.view.IMenuStrings;
+import com.maksymenko.epam.external.practice.curatorjournalentry.view.Menu;
 
+import java.util.Locale;
 import java.util.Scanner;
 
-public class Controller {
-    private Storage storage;
-//    Menu menu;
+public class Controller implements IMenuStrings{
+//    private Storage storage;
 
-    public Controller(Storage storage){
-        this.storage = storage;
-    }
+//    public Controller(Storage storage){
+//        this.storage = storage;
+//    }
 
     public void start(){
 
-        greeting();
-        commands();
+        Menu.greeting();
+        Menu.commands();
 
         String command = "";
         Scanner scanner = new Scanner(System.in);
@@ -29,14 +28,15 @@ public class Controller {
             if(command.equals(MENU_ADD)){
                 toStorage(enteringData());
             } else if(command.equals(MENU_JOURNAL)){
-                showJournal(storage.getJournal());
+                Menu.showJournal(Storage.INSTANCE.getJournal());
             } else if(command.equals(MENU_RU)){
                 System.out.println(MENU_CHANGING_TO_RU);
-
+                Inter inter = new Inter();
+                inter.changeLang(new Locale("ru"));
             } else if(command.equals(MENU_EN)){
                 System.out.println(MENU_CHANGING_TO_EN);
             }
-            commands();
+            Menu.commands();
             command = scanner.next();
         }
 
@@ -47,39 +47,38 @@ public class Controller {
 
         String lastNameIn;
         do{
-            inviteAddNewStudent();
+            Menu.inviteAddNewStudent();
             lastNameIn = enter.next();
-        }while (!isLastNameValid(lastNameIn));
+        }while (!InputValidator.isLastNameValid(lastNameIn));
 
         String firstNameIn;
         do{
-            inviteAddFirstName();
+            Menu.inviteAddFirstName();
             firstNameIn = enter.next();
-        }while (!isFirstNameValid(firstNameIn));
+        }while (!InputValidator.isFirstNameValid(firstNameIn));
 
         String birthDateIn;
         do{
-            inviteAddBirthDate();
+            Menu.inviteAddBirthDate();
             birthDateIn = enter.next();
-        }while (!isBirthDateValid(birthDateIn));
+        }while (!InputValidator.isBirthDateValid(birthDateIn));
 
         String phoneIn;
         do{
-            inviteAddPhone();
+            Menu.inviteAddPhone();
             phoneIn = enter.nextLine();
-        }while (!isPhoneValid(phoneIn));
+        }while (!InputValidator.isPhoneValid(phoneIn));
 
         String addressIn;
         do{
-            inviteAddAddress();
+            Menu.inviteAddAddress();
             addressIn = enter.nextLine();
-        }while (!isAdressValid(addressIn));
+        }while (!InputValidator.isAdressValid(addressIn));
 
         return new Entry(lastNameIn, firstNameIn, birthDateIn, phoneIn, addressIn);
-
     }
 
     private void toStorage(Entry entry){
-        storage.addNewEntry(entry);
+        Storage.INSTANCE.addNewEntry(entry);
     }
 }

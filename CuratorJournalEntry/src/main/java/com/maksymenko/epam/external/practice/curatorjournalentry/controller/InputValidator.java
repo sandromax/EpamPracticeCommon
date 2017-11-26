@@ -1,10 +1,11 @@
 package com.maksymenko.epam.external.practice.curatorjournalentry.controller;
 
+import com.maksymenko.epam.external.practice.curatorjournalentry.view.IValidationResultStrings;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static com.maksymenko.epam.external.practice.curatorjournalentry.view.ProgramStrings.*;
 
-public class InValidator {
+public class InputValidator implements IValidationResultStrings{
 
     public static String lastNameRegExp = "^[A-Z][a-z]*$";
 
@@ -18,7 +19,7 @@ public class InValidator {
     //private static String getAddressRegExpUS = "^\\d{1,5}\\s[A-Z][a-z]*\\s(St|Blvd|Square|Ave)\\s[A-Z][a-z]*,\\s[A-Z]{2}\\s\\d{5},\\sUS";
 
     public static boolean isLastNameValid(String lastName){
-        Pattern pattern = Pattern.compile(InValidator.lastNameRegExp);
+        Pattern pattern = Pattern.compile(InputValidator.lastNameRegExp);
         Matcher matcher = pattern.matcher(lastName);
 
         if(matcher.find()){
@@ -31,7 +32,7 @@ public class InValidator {
     }
 
     public static boolean isFirstNameValid(String firstName){
-        Pattern pattern = Pattern.compile(InValidator.firstNameRegExp);
+        Pattern pattern = Pattern.compile(InputValidator.firstNameRegExp);
         Matcher matcher = pattern.matcher(firstName);
 
         if(matcher.find()){
@@ -44,7 +45,7 @@ public class InValidator {
     }
 
     public static boolean isBirthDateValid(String birthDate){
-        Pattern pattern = Pattern.compile(InValidator.birthDateRegExp);
+        Pattern pattern = Pattern.compile(InputValidator.birthDateRegExp);
         Matcher matcher = pattern.matcher(birthDate);
 
         if(matcher.find()){
@@ -57,7 +58,7 @@ public class InValidator {
     }
 
     public static boolean isPhoneValid(String phoneNumber){
-        Pattern pattern = Pattern.compile(InValidator.phoneRegExp);
+        Pattern pattern = Pattern.compile(InputValidator.phoneRegExp);
         Matcher matcher = pattern.matcher(phoneNumber);
 
         if(matcher.find()){
@@ -70,7 +71,7 @@ public class InValidator {
     }
 
     public static boolean isAdressValid(String address){
-        Pattern pattern = Pattern.compile(InValidator.addressRegExpByTask);
+        Pattern pattern = Pattern.compile(InputValidator.addressRegExpByTask);
         Matcher matcher = pattern.matcher(address);
 
         if(matcher.find()){
