@@ -3,6 +3,11 @@ package com.maksymenko.epam.external.practice.curatorjournalentry;
 import com.maksymenko.epam.external.practice.curatorjournalentry.controller.Controller;
 import com.maksymenko.epam.external.practice.curatorjournalentry.view.IMenuStrings;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.maksymenko.epam.external.practice.curatorjournalentry.controller.Internationalization.RESOURCE;
+
 public class TestField implements IMenuStrings{
     public static void main(String[] args) {
 
@@ -40,6 +45,17 @@ public class TestField implements IMenuStrings{
 //        System.out.println("display script: "+localeRu.getDisplayScript());
 //
 //        System.out.println(Charset.defaultCharset().toString());
+//
+//        String ready = "([0][1-9]|[12][0-9]|3[0-1]).(0[1-9]|1[0-2]).(19|20)\\d{2}";
+//        String ready2 = "([0-9]{2}).([0-9]{2}).([0-9]{4})";
+//        String test = "^\\([0-9]{3}\\)[0-9]{7}$";
+//        Pattern pattern = Pattern.compile(test);
+//        Matcher matcher = pattern.matcher("(567)6786767");
+//
+//        if(matcher.find()) {
+//            System.out.println("ЕСТЬ!");
+//        } else
+//            System.out.println("neku");
 
     }
 }

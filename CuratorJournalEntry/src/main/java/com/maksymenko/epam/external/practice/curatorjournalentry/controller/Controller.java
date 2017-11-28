@@ -11,11 +11,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Controller implements IMenuStrings{
-//    private Storage storage;
-
-//    public Controller(Storage storage){
-//        this.storage = storage;
-//    }
 
     public void start(){
         Locale.setDefault(new Locale("en", "GB"));
@@ -43,10 +38,15 @@ public class Controller implements IMenuStrings{
 
                 System.out.println(RESOURCE.getValue(MENU_CHANGING_TO_EN));
                 Internationalization.RESOURCE.changeLang(new Locale("en"));
-            }
+            } else if(command.equals(RESOURCE.getValue(MENU_FR))){
 
-//            System.out.println("resource bundle: " + RESOURCE.resourceBundle);
-//            System.out.println("locale: " + Locale.getDefault());
+                System.out.println(RESOURCE.getValue(MENU_CHANGING_TO_FR));
+                Internationalization.RESOURCE.changeLang(new Locale("fr"));
+            } else if(command.equals(RESOURCE.getValue(MENU_UA))){
+
+                System.out.println(RESOURCE.getValue(MENU_CHANGING_TO_UA));
+                Internationalization.RESOURCE.changeLang(new Locale("uk"));
+            }
 
             Menu.commands();
             command = scanner.next();
