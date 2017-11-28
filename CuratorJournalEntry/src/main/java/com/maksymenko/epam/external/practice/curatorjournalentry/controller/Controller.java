@@ -5,6 +5,8 @@ import com.maksymenko.epam.external.practice.curatorjournalentry.model.Storage;
 import com.maksymenko.epam.external.practice.curatorjournalentry.view.IMenuStrings;
 import com.maksymenko.epam.external.practice.curatorjournalentry.view.Menu;
 
+import static com.maksymenko.epam.external.practice.curatorjournalentry.controller.Internationalization.RESOURCE;
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,6 +18,7 @@ public class Controller implements IMenuStrings{
 //    }
 
     public void start(){
+        Locale.setDefault(new Locale("en", "GB"));
 
         Menu.greeting();
         Menu.commands();
@@ -24,18 +27,27 @@ public class Controller implements IMenuStrings{
         Scanner scanner = new Scanner(System.in);
         command = scanner.next();
 
-        while(!command.equals(MENU_EXIT)){
-            if(command.equals(MENU_ADD)){
+        while(!command.equals(RESOURCE.getValue(MENU_EXIT))){
+
+            if(command.equals(RESOURCE.getValue(MENU_ADD))){
                 toStorage(enteringData());
-            } else if(command.equals(MENU_JOURNAL)){
+            } else if(command.equals(RESOURCE.getValue(MENU_JOURNAL))){
+
                 Menu.showJournal(Storage.INSTANCE.getJournal());
-            } else if(command.equals(MENU_RU)){
-                System.out.println(MENU_CHANGING_TO_RU);
-                Inter inter = new Inter();
-                inter.changeLang(new Locale("ru"));
-            } else if(command.equals(MENU_EN)){
-                System.out.println(MENU_CHANGING_TO_EN);
+            } else if(command.equals(RESOURCE.getValue(MENU_RU))){
+
+                System.out.println(RESOURCE.getValue(MENU_CHANGING_TO_RU));
+                Internationalization.RESOURCE.changeLang(new Locale("ru"));
+
+            } else if(command.equals(RESOURCE.getValue(MENU_EN))){
+
+                System.out.println(RESOURCE.getValue(MENU_CHANGING_TO_EN));
+                Internationalization.RESOURCE.changeLang(new Locale("en"));
             }
+
+//            System.out.println("resource bundle: " + RESOURCE.resourceBundle);
+//            System.out.println("locale: " + Locale.getDefault());
+
             Menu.commands();
             command = scanner.next();
         }

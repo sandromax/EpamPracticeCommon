@@ -1,34 +1,32 @@
 package com.maksymenko.epam.external.practice.curatorjournalentry;
 
 import com.maksymenko.epam.external.practice.curatorjournalentry.controller.Controller;
-import com.maksymenko.epam.external.practice.curatorjournalentry.controller.Inter;
-import com.maksymenko.epam.external.practice.curatorjournalentry.model.Storage;
 import com.maksymenko.epam.external.practice.curatorjournalentry.view.IMenuStrings;
-
-import java.nio.charset.Charset;
-import java.util.Locale;
 
 public class TestField implements IMenuStrings{
     public static void main(String[] args) {
 
-//        Controller controller = new Controller();
-//        controller.start();
-        Locale enLocale = new Locale("en");
-        Locale ruLocale = new Locale("ru");
+//        Locale enLocale = new Locale("en");
+//        Locale ruLocale = new Locale("ru");
+//
+//        Internationalization.RESOURCE.changeLang(ruLocale);
 
-        System.out.println(enLocale.getDisplayLanguage());
-        System.out.println(ruLocale.getDisplayLanguage());
+        Controller controller = new Controller();
+        controller.start();
 
-        Inter inter = new Inter();
-//        Locale.setDefault(ruLocale);
-        inter.changeLang(ruLocale);
-        System.out.println(inter.getValue(MENU_EXIT));
-        System.out.println(inter.getValue(MENU_JOURNAL));
-
-//        Locale.setDefault(enLocale);
-        inter.changeLang(enLocale);
-        System.out.println(inter.getValue(MENU_JOURNAL));
-        System.out.println(inter.getValue(MENU_EXIT));
+//        System.out.println(enLocale.getDisplayLanguage());
+//        System.out.println(ruLocale.getDisplayLanguage());
+////
+////        Internationalization inter = new Internationalization();
+////        Locale.setDefault(ruLocale);
+//        Internationalization.RESOURCE.changeLang(ruLocale);
+//        System.out.println(Internationalization.RESOURCE.getValue(MENU_EXIT));
+//        System.out.println(Internationalization.RESOURCE.getValue(MENU_JOURNAL));
+//
+////        Locale.setDefault(enLocale);
+//        Internationalization.RESOURCE.changeLang(enLocale);
+//        System.out.println(Internationalization.RESOURCE.getValue(MENU_JOURNAL));
+//        System.out.println(Internationalization.RESOURCE.getValue(MENU_EXIT));
 
 
 

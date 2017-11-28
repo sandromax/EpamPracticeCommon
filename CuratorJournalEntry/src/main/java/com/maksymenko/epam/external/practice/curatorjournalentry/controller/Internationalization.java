@@ -1,20 +1,21 @@
 package com.maksymenko.epam.external.practice.curatorjournalentry.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class Inter {
+public enum Internationalization {
+    RESOURCE;
 
-    private ResourceBundle resourceBundle;
+    public ResourceBundle resourceBundle;
     private String resourceName = "MenuStrings";
 
-    public Inter() {
-
+    Internationalization() {
+        resourceBundle = ResourceBundle.getBundle(resourceName, Locale.getDefault());
     }
 
     public void changeLang(Locale newLoc){
+        Locale.setDefault(newLoc);
         resourceBundle = ResourceBundle.getBundle(resourceName, newLoc);
     }
 

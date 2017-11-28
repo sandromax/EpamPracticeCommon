@@ -1,36 +1,37 @@
 package com.maksymenko.epam.external.practice.curatorjournalentry.view;
 
+import com.maksymenko.epam.external.practice.curatorjournalentry.controller.Internationalization;
 import com.maksymenko.epam.external.practice.curatorjournalentry.model.Entry;
 import java.util.List;
 
 public class Menu implements IInviteStrings{
     public static void greeting(){
-        System.out.println(WELCOME);
+        System.out.println(Internationalization.RESOURCE.getValue(WELCOME));
     }
 
     public static void commands(){
-        System.out.println(COMMANDS);
+        System.out.println(Internationalization.RESOURCE.getValue(COMMANDS));
     }
 
     public static void inviteAddNewStudent(){
-        System.out.println(INVITE_ADD_NEW_STUDENT);
-        System.out.println(INVITE_ADD_LAST_NAME);
+        System.out.println(Internationalization.RESOURCE.getValue(INVITE_ADD_NEW_STUDENT));
+        System.out.println(Internationalization.RESOURCE.getValue(INVITE_ADD_LAST_NAME));
     }
 
     public static void inviteAddFirstName(){
-        System.out.println(INVITE_ADD_FIRST_NAME);
+        System.out.println(Internationalization.RESOURCE.getValue(INVITE_ADD_FIRST_NAME));
     }
 
     public static void inviteAddBirthDate(){
-        System.out.println(INVITE_ADD_BIRTH_DATE);
+        System.out.println(Internationalization.RESOURCE.getValue(INVITE_ADD_BIRTH_DATE));
     }
 
     public static void inviteAddPhone(){
-        System.out.println(INVITE_ADD_PHONE);
+        System.out.println(Internationalization.RESOURCE.getValue(INVITE_ADD_PHONE));
     }
 
     public static void inviteAddAddress(){
-        System.out.println(INVITE_ADD_ADDRESS);
+        System.out.println(Internationalization.RESOURCE.getValue(INVITE_ADD_ADDRESS));
     }
 
     public static void showJournal(List<Entry> journal){
