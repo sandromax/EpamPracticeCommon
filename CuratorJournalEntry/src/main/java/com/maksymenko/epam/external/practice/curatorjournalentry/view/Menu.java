@@ -40,5 +40,6 @@ public class Menu implements IInviteStrings{
             System.out.println(i+". " + entry.getStudentLastName() + " " + entry.getStudentFirstName() + " " + entry.getStudentBirthDate() + " " + entry.getStudentPhone() + " " + entry.getStudentHomeAddress());
             i++;
         }
+        System.out.println();
     }
 }
