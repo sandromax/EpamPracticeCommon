@@ -15,6 +15,5 @@ public class RunProgram {
         System.out.println("\t\tAfter reflect:");
         stringReflector.printStrings();
 
-
     }
 }
