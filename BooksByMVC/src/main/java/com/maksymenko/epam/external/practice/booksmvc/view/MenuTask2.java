@@ -1,6 +1,6 @@
 //package com.maksymenko.epam.external.practice.booksmvc.view;
 //
-//import com.maksymenko.epam.external.practice.booksmvc.model.ShelfGeneratorEnglish;
+//import com.maksymenko.epam.external.practice.booksmvc.model.ShelfGeneratorEn;
 //import com.maksymenko.epam.external.practice.booksmvc.model.Book;
 //import com.maksymenko.epam.external.practice.booksmvc.model.ShelfInform;
 //
@@ -10,7 +10,7 @@
 //    public void launch(){
 //
 //        hello();
-//        Book[] shelf = ShelfGeneratorEnglish.createShelf(10);
+//        Book[] shelf = ShelfGeneratorEn.createShelf(10);
 //        showShelf(shelf);
 //        showCommands();
 //

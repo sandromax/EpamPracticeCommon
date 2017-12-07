@@ -1,6 +1,14 @@
 package com.maksymenko.epam.external.practice.booksmvc.model;
 
-public class Book {
+import java.io.Serializable;
+
+/**
+ * Class describe book entity
+ *
+ * @version 1.01 2017-11-09
+ * @author Maksymenko Oleksandr
+ */
+public class Book implements Serializable{
     private String bookName;
     private String author;
     private String publHouse;
@@ -30,47 +38,24 @@ public class Book {
         return bookName;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
     public String getAuthor() {
         return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getPublHouse() {
         return publHouse;
     }
 
-    public void setPublHouse(String publHouse) {
-        this.publHouse = publHouse;
-    }
-
     public int getPublYear() {
         return publYear;
-    }
-
-    public void setPublYear(int publYear) {
-        this.publYear = publYear;
     }
 
     public int getNumberOfPage() {
         return numberOfPage;
     }
 
-    public void setNumberOfPage(int numberOfPage) {
-        this.numberOfPage = numberOfPage;
-    }
-
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }

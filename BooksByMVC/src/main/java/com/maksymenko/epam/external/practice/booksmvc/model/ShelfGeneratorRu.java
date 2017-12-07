@@ -2,7 +2,7 @@ package com.maksymenko.epam.external.practice.booksmvc.model;
 
 import java.util.Random;
 
-public class ShelfGenerator {
+public class ShelfGeneratorRu {
 
     private String[] bookNames = {"Нова экспресс", "Аллея Торнадо", "Серебрянная ложка", "Цветок в пустыне", "Фриленды", "На Форсайтской Бирже", "Вилла Рубейн", "Изюминка"};
     private String[] authors = {"Барбюс Анри", "Берроуз Вильям", "Берроуз Эдгар Райс", "Борхес Хорхе Луис", "Буковски Чарльз", "Дю Гар Роже Мартен", "Голдсмит Оливер", "Голсуорси Джон", "Диккенс Чарльз"};

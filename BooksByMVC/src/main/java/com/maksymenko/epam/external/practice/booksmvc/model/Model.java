@@ -7,21 +7,22 @@ public class Model {
     Book[] shelf;
 
     public Model(int booksQuantity){
-        ShelfGeneratorEnglish shelfGeneratorEnglish = new ShelfGeneratorEnglish();
-        Book[] shelf = shelfGeneratorEnglish.createShelf(booksQuantity);
+        ShelfGeneratorEn shelfGeneratorEn = new ShelfGeneratorEn();
+        shelf = shelfGeneratorEn.createShelf(booksQuantity);
     }
 
     public Book[] getShelf(){
         return shelf;
     }
 
-    //создать и сохранить полку
-    //!!!Constructor
-
-    //выборка по:
-    //автору
     public Book[] findBooksByAuthor(String authorNeeded){
-        Book[] result = new Book[shelf.length];
+        int size = 0;
+        for(Book b : shelf) {
+            if (b.getAuthor().equals(authorNeeded))
+                size++;
+        }
+
+        Book[] result = new Book[size];
         int iterator = 0;
 
         for(Book book : shelf){
@@ -34,14 +35,14 @@ public class Model {
         return  result;
     }
 
-    public static Book cloneBook(Book book){
-        Book newBook = new Book(book.getBookName(), book.getAuthor(), book.getPublHouse(), book.getPublYear(), book.getNumberOfPage(), book.getPrice());
-        return newBook;
-    }
-
-    //по издательству
     public Book[] findBooksByPublishing(String publishingNeeded){
-        Book[] result = new Book[shelf.length];
+        int size = 0;
+        for(Book b : shelf) {
+            if (b.getPublHouse().equals(publishingNeeded))
+                size++;
+        }
+
+        Book[] result = new Book[size];
         int iterator = 0;
 
         for(Book book : shelf){
@@ -54,9 +55,14 @@ public class Model {
         return  result;
     }
 
-    //позже года ...
     public Book[] findLaterBooks(int fromYear){
-        Book[] result = new Book[shelf.length];
+        int size = 0;
+        for(Book b : shelf) {
+            if (b.getPublYear() > fromYear)
+                size++;
+        }
+
+        Book[] result = new Book[size];
         int iterator = 0;
 
         for(Book book : shelf){
@@ -69,9 +75,13 @@ public class Model {
         return  result;
     }
 
-    //сортировка по издательству
     public Book[] sortBooksByPublishing(){
         Arrays.sort(shelf, new BooksSortByPublishingHouseComparator());
         return shelf;
+    }
+
+    public static Book cloneBook(Book book){
+        Book newBook = new Book(book.getBookName(), book.getAuthor(), book.getPublHouse(), book.getPublYear(), book.getNumberOfPage(), book.getPrice());
+        return newBook;
     }
 }

@@ -2,7 +2,7 @@ package com.maksymenko.epam.external.practice.booksmvc.model;
 
 import java.util.Random;
 
-public class ShelfGeneratorEnglish {
+public class ShelfGeneratorEn {
     private static String[] bookNames = {"Pride and Prejudice", "Jane Eyre", "Animal Farm", "The Picture of Dorian Gray", "Hamlet", "Great Expectations"};
     private static String[] authors = {"Jane Austen", "Charlotte Bronte", "George Orwell", "Oscar Wilde", "Charles Dickens", "William Shakespeare"};
     private static String[] publishingHouses = {"Pearson", "McGraw-Hill Education", "Oxford University Press", "Prentice Hall", "Cambridge University Press"};
