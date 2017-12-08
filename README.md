@@ -1,8 +1,8 @@
 # EpamPracticeCommon
 EPAM practical task 4 and newest (Java Autumn 2017. External Classes)
 
-task 6.1 - BookByMVC
-task 6.2 - StringRefclectSixTwo
-task 6.3 - UnaryArithmeticOperatorSixThreeTask
-task 5   - CuratorJournalEntry
-task 4   - MyOwnEnum
+TASK 6.1 - BookByMVC|
+TASK 6.2 - StringRefclectSixTwo|
+TASK 6.3 - UnaryArithmeticOperatorSixThreeTask|
+TASK 5 - CuratorJournalEntry|
+TASK 4 - MyOwnEnum|
