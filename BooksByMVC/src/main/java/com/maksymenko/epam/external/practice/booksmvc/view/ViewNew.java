@@ -59,8 +59,6 @@ public class ViewNew {
     }
 
     public static void showArray(Book[] arrayToShow) {
-        System.out.println(arrayToShow.length);
-
         for(Book b : arrayToShow){
             System.out.println(b.getAuthor()+" "+b.getBookName()+" "+b.getPublHouse()+" "+b.getPublYear());
         }

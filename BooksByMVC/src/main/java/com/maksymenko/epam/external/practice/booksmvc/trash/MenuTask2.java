@@ -2,7 +2,7 @@
 //
 //import com.maksymenko.epam.external.practice.booksmvc.model.ShelfGeneratorEn;
 //import com.maksymenko.epam.external.practice.booksmvc.model.Book;
-//import com.maksymenko.epam.external.practice.booksmvc.model.ShelfInform;
+//import com.maksymenko.epam.external.practice.booksmvc.trash.ShelfInform;
 //
 //import java.util.Scanner;
 //

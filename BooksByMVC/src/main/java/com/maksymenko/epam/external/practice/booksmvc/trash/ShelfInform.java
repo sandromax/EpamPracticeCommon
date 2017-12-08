@@ -1,4 +1,7 @@
-package com.maksymenko.epam.external.practice.booksmvc.model;
+package com.maksymenko.epam.external.practice.booksmvc.trash;
+
+import com.maksymenko.epam.external.practice.booksmvc.model.Book;
+import com.maksymenko.epam.external.practice.booksmvc.model.BooksSortByPublishingHouseComparator;
 
 import java.util.Arrays;
 

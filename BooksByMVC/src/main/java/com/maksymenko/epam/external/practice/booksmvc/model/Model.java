@@ -1,14 +1,18 @@
 package com.maksymenko.epam.external.practice.booksmvc.model;
 
+import org.apache.log4j.Logger;
+
 import java.util.Arrays;
 
 public class Model {
 
     Book[] shelf;
+    Logger logger = Logger.getLogger(Model.class);
 
     public Model(int booksQuantity){
         ShelfGeneratorEn shelfGeneratorEn = new ShelfGeneratorEn();
         shelf = shelfGeneratorEn.createShelf(booksQuantity);
+        logger.info("Shelf was generated");
     }
 
     public Book[] getShelf(){
@@ -21,6 +25,8 @@ public class Model {
             if (b.getAuthor().equals(authorNeeded))
                 size++;
         }
+
+        logger.info("Founded " + size + " books by " + authorNeeded);
 
         Book[] result = new Book[size];
         int iterator = 0;
@@ -42,6 +48,8 @@ public class Model {
                 size++;
         }
 
+        logger.info("Founded " + size + " books by " + publishingNeeded);
+
         Book[] result = new Book[size];
         int iterator = 0;
 
@@ -61,6 +69,8 @@ public class Model {
             if (b.getPublYear() > fromYear)
                 size++;
         }
+
+        logger.info("Founded " + size + " books later than " + fromYear);
 
         Book[] result = new Book[size];
         int iterator = 0;

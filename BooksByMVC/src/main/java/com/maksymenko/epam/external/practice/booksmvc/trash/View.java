@@ -1,6 +1,5 @@
-package com.maksymenko.epam.external.practice.booksmvc.view;
+package com.maksymenko.epam.external.practice.booksmvc.trash;
 
-import com.maksymenko.epam.external.practice.booksmvc.controller.Controller;
 import com.maksymenko.epam.external.practice.booksmvc.model.Book;
 import com.maksymenko.epam.external.practice.booksmvc.model.Model;
 

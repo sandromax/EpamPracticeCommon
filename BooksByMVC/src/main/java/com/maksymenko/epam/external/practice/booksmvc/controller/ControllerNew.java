@@ -2,14 +2,18 @@ package com.maksymenko.epam.external.practice.booksmvc.controller;
 
 import com.maksymenko.epam.external.practice.booksmvc.model.Model;
 import com.maksymenko.epam.external.practice.booksmvc.view.ViewNew;
+import org.apache.log4j.Logger;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class ControllerNew {
-
-    private Model model = new Model(20);
+    private final Logger logger = Logger.getLogger(ControllerNew.class);
 
     public void launch() {
+        logger.info("Program started");
+        Model model = new Model(20);
+
 
         ViewNew.welcome();
         ViewNew.showShelf(model.getShelf());
@@ -39,10 +43,11 @@ public class ControllerNew {
                     ViewNew.showArray(model.sortBooksByPublishing());
                     break;
                 }
+                case "exit": {
+                    logger.info("Program halted");
+                }
             }
         }
-
-
     }
 
     private String enterCommandString() {
