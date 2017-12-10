@@ -12,7 +12,7 @@ public class Model {
     public Model(int booksQuantity){
         ShelfGeneratorEn shelfGeneratorEn = new ShelfGeneratorEn();
         shelf = shelfGeneratorEn.createShelf(booksQuantity);
-        logger.info("Shelf was generated");
+        logger.info("Shelf was filled");
     }
 
     public Book[] getShelf(){

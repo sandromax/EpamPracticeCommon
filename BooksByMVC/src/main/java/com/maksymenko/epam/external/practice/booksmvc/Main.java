@@ -9,6 +9,5 @@ public class Main {
         ControllerNew program = new ControllerNew();
         program.launch();
 
-
     }
 }

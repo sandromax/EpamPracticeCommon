@@ -25,8 +25,9 @@ public class ViewNew {
                 "\npubl - by publishing" +
                 "\nyear - to get book was publishing after some year" +
                 "\nsort - to sort by publishing" +
-                "\nsave - to save objects to file" +
-                "\n         What do you want to do?");
+                "\nsaveto - to save objects to file" +
+                "\nloadshelf - to load shelf to program" +
+                "\n         What do you want to do?\n");
     }
 
     /**
@@ -48,8 +49,25 @@ public class ViewNew {
         System.out.println("Shelf sorted by publishing house:");
     }
 
+    public static void saveToMenuEnterDir() {
+        System.out.println("You can save bookshelf to some file" +
+                "\nenter directory absolute path" +
+                "\nEnd of path must be \'\\\' or \'/\'");
+    }
+
+    public static void savToMenuEnterFileName() {
+        System.out.println("And now we need name of file." +
+                "\nDo not be surprised by it extension." +
+                "\nIt will be \'.ser\'" +
+                "\nEnter name of file");
+    }
+
+    public static void loadShelfMenu() {
+        System.out.println("Loading...\nAnd now");
+    }
+
     public static void showShelf(Book[] shelf){
-        System.out.println("            We have next books on our bookshelf");
+        System.out.println("            We have next books on our shelf");
 
         for(Book b : shelf){
             System.out.println(b.getAuthor()+" "+b.getBookName()+" "+b.getPublHouse()+" "+b.getPublYear());

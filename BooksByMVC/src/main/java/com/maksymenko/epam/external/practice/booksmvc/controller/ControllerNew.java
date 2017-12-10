@@ -1,10 +1,14 @@
 package com.maksymenko.epam.external.practice.booksmvc.controller;
 
+import com.maksymenko.epam.external.practice.booksmvc.model.Book;
 import com.maksymenko.epam.external.practice.booksmvc.model.Model;
 import com.maksymenko.epam.external.practice.booksmvc.view.ViewNew;
 import org.apache.log4j.Logger;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Scanner;
 
 public class ControllerNew {
@@ -13,10 +17,10 @@ public class ControllerNew {
     public void launch() {
         logger.info("Program started");
         Model model = new Model(20);
-
+        Book[] shelfInProgram = model.getShelf();
 
         ViewNew.welcome();
-        ViewNew.showShelf(model.getShelf());
+        ViewNew.showShelf(shelfInProgram);
 
         String command = "";
         while (!command.equals("exit")) {
@@ -43,8 +47,18 @@ public class ControllerNew {
                     ViewNew.showArray(model.sortBooksByPublishing());
                     break;
                 }
+                case "saveto": {
+                    saveObjects(model.getShelf());
+                    break;
+                }
+                case "loadshelf": {
+                    shelfInProgram = loadShelf(enterCommandString());
+                    ViewNew.showShelf(shelfInProgram);
+                    break;
+                }
                 case "exit": {
                     logger.info("Program halted");
+                    break;
                 }
             }
         }
@@ -58,5 +72,44 @@ public class ControllerNew {
     private int enterCommandInt() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
+    }
+
+    public boolean checkPath(String path) {
+        if(Files.exists(Paths.get(path)))
+            return true;
+        else
+            return false;
+    }
+
+    public boolean saveObjects(Book[] books) {
+        ViewNew.saveToMenuEnterDir();
+        String pathDir = "";
+
+        do{
+            pathDir = enterCommandString();
+        }while (!checkPath(pathDir));
+
+        ViewNew.savToMenuEnterFileName();
+        String fileName = enterCommandString();
+
+        FileWork fileWork = new FileWork();
+        fileWork.saveShelfToFile(books, pathDir + fileName + ".ser");
+
+        return true;
+    }
+
+    public Book[] loadShelf(String path) {
+        FileWork fileWork = new FileWork();
+        List<Book> list = fileWork.readShelfFromFile(path);
+
+        Book[] result = new Book[list.size()];
+
+        int i = 0;
+        for(Book book : list) {
+            result[i] = book;
+            i++;
+        }
+
+        return result;
     }
 }

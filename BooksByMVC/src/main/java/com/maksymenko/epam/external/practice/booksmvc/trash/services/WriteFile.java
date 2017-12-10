@@ -1,4 +1,4 @@
-package com.maksymenko.epam.external.practice.booksmvc.services;
+package com.maksymenko.epam.external.practice.booksmvc.trash.services;
 
 import java.io.*;
 import java.nio.file.Files;
