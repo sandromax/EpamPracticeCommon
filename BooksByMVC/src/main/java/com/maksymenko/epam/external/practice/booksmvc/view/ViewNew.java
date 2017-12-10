@@ -5,6 +5,13 @@ import com.maksymenko.epam.external.practice.booksmvc.model.Book;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Class writes objects to file
+ *
+ * @version 2.01 2017-11-19
+ *
+ * @author Maksymenko Oleksandr
+ */
 public class ViewNew {
     /**
      * Method prints invitation of the program
@@ -27,6 +34,7 @@ public class ViewNew {
                 "\nsort - to sort by publishing" +
                 "\nsaveto - to save objects to file" +
                 "\nloadshelf - to load shelf to program" +
+                "\nexit - to exit" +
                 "\n         What do you want to do?\n");
     }
 
@@ -62,8 +70,12 @@ public class ViewNew {
                 "\nEnter name of file");
     }
 
-    public static void loadShelfMenu() {
-        System.out.println("Loading...\nAnd now");
+    public static void loadShelfMenuPath() {
+        System.out.println("Enter path to file (with file name)");
+    }
+
+    public static void loadShelfMenuResult() {
+        System.out.println("Loading...\n\tand now");
     }
 
     public static void showShelf(Book[] shelf){

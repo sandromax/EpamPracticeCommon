@@ -5,14 +5,15 @@ import com.maksymenko.epam.external.practice.booksmvc.model.Model;
 
 import java.util.Scanner;
 
-public class View {
+
+public class ViewOld {
 
     Model modelInView;
-    Controller ctrlInView;
+    ControllerOld ctrlInView;
 
-    public View(Model model, Controller controller){
+    public ViewOld(Model model, ControllerOld controllerOld){
         modelInView = model;
-        ctrlInView = controller;
+        ctrlInView = controllerOld;
     }
 
     public void start(){

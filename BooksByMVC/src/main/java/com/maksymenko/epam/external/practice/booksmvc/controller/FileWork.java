@@ -7,6 +7,12 @@ import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+/**
+ * Class writes objects to file
+ *
+ * @version 1.01 2017-12-07
+ * @author Maksymenko Oleksandr
+ */
 public class FileWork {
     Logger logger = Logger.getLogger(FileWork.class);
 
@@ -41,7 +47,7 @@ public class FileWork {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
-                    logger.error("return after IOException");
+                    logger.error("Strange IOException");
 //                    return list;            //  DANGEROUS WAY
                 }
 

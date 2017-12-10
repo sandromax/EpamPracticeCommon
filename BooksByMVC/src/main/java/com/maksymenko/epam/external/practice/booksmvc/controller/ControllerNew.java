@@ -7,10 +7,16 @@ import org.apache.log4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class writes objects to file
+ *
+ * @version 2.23 2017-12-07
+ *
+ * @author Maksymenko Oleksandr
+ */
 public class ControllerNew {
     private final Logger logger = Logger.getLogger(ControllerNew.class);
 
@@ -49,16 +55,23 @@ public class ControllerNew {
                 }
                 case "saveto": {
                     saveObjects(model.getShelf());
+                    logger.info("shelf save to ...");
                     break;
                 }
                 case "loadshelf": {
-                    shelfInProgram = loadShelf(enterCommandString());
-                    ViewNew.showShelf(shelfInProgram);
+                    ViewNew.loadShelfMenuPath();
+                    model.setShelf(loadShelf(enterCommandString()));
+
+                    ViewNew.loadShelfMenuResult();
+                    ViewNew.showShelf(model.getShelf());
                     break;
                 }
                 case "exit": {
                     logger.info("Program halted");
                     break;
+                }
+                default: {
+                    System.out.println("Command not found. Try again");
                 }
             }
         }

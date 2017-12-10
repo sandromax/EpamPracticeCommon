@@ -3,7 +3,7 @@ package com.maksymenko.epam.external.practice.booksmvc.trash;
 import com.maksymenko.epam.external.practice.booksmvc.model.Book;
 import com.maksymenko.epam.external.practice.booksmvc.model.Model;
 
-public class Controller {
+public class ControllerOld {
 
     public Model InitModel(){
         Model model = new Model(30);
