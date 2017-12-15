@@ -27,6 +27,16 @@ public class Runner82 {
             e.printStackTrace();
         }
 
+        System.out.println("Synchro case-----------------------");
+
+        VarSync varSync = new VarSync();
+
+        Thread printSynchro = new Thread(new PrinterSync(varSync));
+        Thread countSynchro = new Thread(new CounterSync(varSync));
+
+        printSynchro.start();
+        countSynchro.start();
+
     }
 
 }
