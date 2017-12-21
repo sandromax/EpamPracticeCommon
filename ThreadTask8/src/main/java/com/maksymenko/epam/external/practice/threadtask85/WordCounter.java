@@ -1,21 +1,47 @@
 package com.maksymenko.epam.external.practice.threadtask85;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.RecursiveTask;
+import java.util.stream.Stream;
 
 public class WordCounter extends RecursiveTask{
-    Path catalog;
+//    Path catalog;
+    File dir;
 
     public WordCounter() {
 
     }
 
-    public WordCounter(Path catalog) {
-        this.catalog = catalog;
+    public WordCounter(String catalog) {
+        this.dir = new File(catalog);
     }
 
     @Override
     protected Object compute() {
-        return null;
+        for(File file : dir.listFiles()) {
+            if(file.isFile()) {
+
+            }
+        }
+
+        return new Object();
+
     }
+
+    private int count(String path) {
+        try {
+            Stream str = Files.lines(Paths.get(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return 4;
+
+    }
+
+
 }

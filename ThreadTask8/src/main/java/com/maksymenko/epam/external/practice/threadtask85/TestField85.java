@@ -1,11 +1,13 @@
 package com.maksymenko.epam.external.practice.threadtask85;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TestField85{
@@ -19,6 +21,22 @@ public class TestField85{
                     System.out.println(e);
                 }
         );
+
+        File file = new File("/home/san/find");
+        System.out.println(file);
+        System.out.println(file.isFile());
+        System.out.println(file.isDirectory());
+        System.out.println(file.getPath());
+        System.out.println(file.list().length);
+
+        File[] fa = file.listFiles();
+        System.out.println(fa.length);
+
+        for(File f : file.listFiles()) {
+            System.out.println(f.getName());
+        }
+
+
 
 
 
@@ -47,5 +65,11 @@ public class TestField85{
 //        finish = System.currentTimeMillis();
 //        System.out.println("parallel stream: " + count + " time " + (finish - start));
 
+    }
+
+    public List<File> checkDir(Path dirPath) {
+        List<File> filesList = new LinkedList<>();
+
+        return filesList;
     }
 }
