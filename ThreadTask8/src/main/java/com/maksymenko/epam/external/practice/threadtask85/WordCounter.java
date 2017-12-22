@@ -10,7 +10,8 @@ import java.util.stream.Stream;
 
 public class WordCounter extends RecursiveTask{
 //    Path catalog;
-    File dir;
+    private File dir;
+    private Path findCatalogWindows = Paths.get("D:\\find");
 
     public WordCounter() {
 
@@ -22,14 +23,15 @@ public class WordCounter extends RecursiveTask{
 
     @Override
     protected Object compute() {
-        for(File file : dir.listFiles()) {
-            if(file.isFile()) {
+        try {
+            Files.list(findCatalogWindows).forEach((s) -> {
 
-            }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return new Object();
-
     }
 
     private int count(String path) {
@@ -41,6 +43,10 @@ public class WordCounter extends RecursiveTask{
 
         return 4;
 
+    }
+
+    private void some(Stream str) {
+//        if(str.)
     }
 
 

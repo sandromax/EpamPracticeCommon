@@ -9,32 +9,46 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class TestField85{
     public static void main(String[] args)  throws IOException {
+//        String testString = " ++++.///.Cobra, cat---, window, pink, Parrot, silver, sun, cotTon, creed";
+//        System.out.println(TestField85.countWords("C", testString));
+        Path path = Paths.get("D:\\find\\test.txt");
+        System.out.println("Is file D:\\find\\test.txt are exist:  " + Files.exists(path) + "\n");
+        System.out.println(TestField85.handle(path, "aa"));
 
-        Path findCatalog = Paths.get("/home/san/find");
-        System.out.println("Catalog \"/home/san/find\" exist:  " + Files.exists(findCatalog) + "\n");
 
-        Files.list(findCatalog).filter(x -> Files.isDirectory(x)).forEach(e ->
-                {
-                    System.out.println(e);
-                }
-        );
+//        Path findCatalog = Paths.get("/home/san/find");
 
-        File file = new File("/home/san/find");
-        System.out.println(file);
-        System.out.println(file.isFile());
-        System.out.println(file.isDirectory());
-        System.out.println(file.getPath());
-        System.out.println(file.list().length);
+//        Path findCatalogWindows = Paths.get("D:\\find");
+//        System.out.println("Is catalog D:\\find exist:  " + Files.exists(findCatalogWindows) + "\n");
+//
+//        //  .filter(x -> Files.isDirectory(x))
+//        Files.list(findCatalogWindows).forEach(e ->
+//                {
+//                    if(e.toFile().isFile()) {
+//
+//                    }
+//                }
+//        );
 
-        File[] fa = file.listFiles();
-        System.out.println(fa.length);
-
-        for(File f : file.listFiles()) {
-            System.out.println(f.getName());
-        }
+//        File file = new File("D:\\find");
+//        System.out.println(file);
+//        System.out.println(file.isFile());
+//        System.out.println(file.isDirectory());
+//        System.out.println(file.getPath());
+//        System.out.println(file.list().length);
+//
+//        File[] fa = file.listFiles();
+//        System.out.println(fa.length);
+//
+//        for(File f : file.listFiles()) {
+//            System.out.println(f.getName());
+//        }
 
 
 
@@ -71,5 +85,47 @@ public class TestField85{
         List<File> filesList = new LinkedList<>();
 
         return filesList;
+    }
+
+    public static int handle(Path path, String letter) {
+        if(letter.length() != 1) {
+            System.out.println("More than one letter");
+            return -1;
+        }
+
+        int count = 0;
+
+        try {
+            LinkedList<String> list = new LinkedList<>();
+            Files.lines(path).forEach((e) -> list.add(e));
+
+            for(String s : list) {
+                count += TestField85.countWords(letter, s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return count;
+    }
+
+    public static int countWords(String letter, String string) {
+        String regExpStart = "(\\b|\\p{Punct})([";
+        String regExpMiddleLower = letter.toLowerCase();
+        String regExpMiddleOr = "|";
+        String regExpMiddleUpper = letter.toUpperCase();
+        String regExpEnd = "][A-Za-z]*)(\\b|\\p{Punct})";
+
+        String regexp = regExpStart.concat(regExpMiddleLower).concat(regExpMiddleUpper).concat(regExpEnd);
+
+        Pattern pattern = Pattern.compile(regexp);
+        Matcher matcher = pattern.matcher(string);
+
+        int result = 0;
+
+        while(matcher.find())
+            result++;
+
+        return result;
     }
 }
