@@ -1,5 +1,7 @@
 package com.maksymenko.epam.external.practice.threadtask85;
 
+import com.maksymenko.epam.external.practice.threadtask84.ArrayRecursiveCounter;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -17,9 +20,24 @@ public class TestField85{
     public static void main(String[] args)  throws IOException {
 //        String testString = " ++++.///.Cobra, cat---, window, pink, Parrot, silver, sun, cotTon, creed";
 //        System.out.println(TestField85.countWords("C", testString));
-        Path path = Paths.get("D:\\find\\test.txt");
-        System.out.println("Is file D:\\find\\test.txt are exist:  " + Files.exists(path) + "\n");
-        System.out.println(TestField85.handle(path, "aa"));
+
+        System.out.println("\t\tTask 8.5\n");
+
+        Path path = Paths.get("D:\\find\\");
+        WordCounter wordCounter = new WordCounter(path, "a");
+
+        ForkJoinPool pool = new ForkJoinPool();
+
+        long start1 = System.currentTimeMillis();
+        pool.invoke(wordCounter);
+        long finish1 = System.currentTimeMillis();
+
+        System.out.println("Sum by fork/join: " + wordCounter.join());
+        System.out.println("Time wasted: " + (finish1-start1));
+
+//        Path path = Paths.get("D:\\find\\test.txt");
+//        System.out.println("Is file D:\\find\\test.txt are exist:  " + Files.exists(path) + "\n");
+//        System.out.println(TestField85.handle(path, "aa"));
 
 
 //        Path findCatalog = Paths.get("/home/san/find");
