@@ -1,6 +1,7 @@
 # EpamPracticeCommon
 EPAM practical task 4 and newest (Java Autumn 2017. External Classes)
 
+Task 8&nbsp;&nbsp;&nbsp; - ThreadTask8
 TASK 6.1 - BookByMVC<br>
 TASK 6.2 - StringRefclectSixTwo<br>
 TASK 6.3 - UnaryArithmeticOperatorSixThreeTask<br>
