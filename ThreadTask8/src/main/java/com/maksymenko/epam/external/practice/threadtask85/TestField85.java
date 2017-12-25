@@ -2,7 +2,9 @@ package com.maksymenko.epam.external.practice.threadtask85;
 
 import com.maksymenko.epam.external.practice.threadtask84.ArrayRecursiveCounter;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -21,19 +23,37 @@ public class TestField85{
 //        String testString = " ++++.///.Cobra, cat---, window, pink, Parrot, silver, sun, cotTon, creed";
 //        System.out.println(TestField85.countWords("C", testString));
 
-        System.out.println("\t\tTask 8.5\n");
+        //Test reading
+        System.out.println(IFileWordsSearchResultRegistrator.read());
 
-        Path path = Paths.get("D:\\find\\");
-        WordCounter wordCounter = new WordCounter(path, "a");
+        //  Mulriple writing file
+//        String fileName = "naming";
+//        int foundWords = 88;
+//        for(int i = 0; i < 5; i++) {
+//            try(BufferedWriter bw = new BufferedWriter(new FileWriter("found.txt", true))) {
+//                bw.write(fileName.concat(" " + foundWords).concat("\n"));
+//                bw.flush();
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
-        ForkJoinPool pool = new ForkJoinPool();
-
-        long start1 = System.currentTimeMillis();
-        pool.invoke(wordCounter);
-        long finish1 = System.currentTimeMillis();
-
-        System.out.println("Sum by fork/join: " + wordCounter.join());
-        System.out.println("Time wasted: " + (finish1-start1));
+//        Task8.5
+//        System.out.println("\t\tTask 8.5\n");
+//
+//        Path path = Paths.get("D:\\find\\");
+//        WordCounter wordCounter = new WordCounter(path, "a");
+//
+//        ForkJoinPool pool = new ForkJoinPool();
+//
+//        long start1 = System.currentTimeMillis();
+//        pool.invoke(wordCounter);
+//        long finish1 = System.currentTimeMillis();
+//
+//        System.out.println("Sum by fork/join: " + wordCounter.join());
+//        System.out.println("Time wasted: " + (finish1-start1));
+        //End of task 8.5
 
 //        Path path = Paths.get("D:\\find\\test.txt");
 //        System.out.println("Is file D:\\find\\test.txt are exist:  " + Files.exists(path) + "\n");
@@ -99,51 +119,51 @@ public class TestField85{
 
     }
 
-    public List<File> checkDir(Path dirPath) {
-        List<File> filesList = new LinkedList<>();
-
-        return filesList;
-    }
-
-    public static int handle(Path path, String letter) {
-        if(letter.length() != 1) {
-            System.out.println("More than one letter");
-            return -1;
-        }
-
-        int count = 0;
-
-        try {
-            LinkedList<String> list = new LinkedList<>();
-            Files.lines(path).forEach((e) -> list.add(e));
-
-            for(String s : list) {
-                count += TestField85.countWords(letter, s);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return count;
-    }
-
-    public static int countWords(String letter, String string) {
-        String regExpStart = "(\\b|\\p{Punct})([";
-        String regExpMiddleLower = letter.toLowerCase();
-        String regExpMiddleOr = "|";
-        String regExpMiddleUpper = letter.toUpperCase();
-        String regExpEnd = "][A-Za-z]*)(\\b|\\p{Punct})";
-
-        String regexp = regExpStart.concat(regExpMiddleLower).concat(regExpMiddleUpper).concat(regExpEnd);
-
-        Pattern pattern = Pattern.compile(regexp);
-        Matcher matcher = pattern.matcher(string);
-
-        int result = 0;
-
-        while(matcher.find())
-            result++;
-
-        return result;
-    }
+//    public List<File> checkDir(Path dirPath) {
+//        List<File> filesList = new LinkedList<>();
+//
+//        return filesList;
+//    }
+//
+//    public static int handle(Path path, String letter) {
+//        if(letter.length() != 1) {
+//            System.out.println("More than one letter");
+//            return -1;
+//        }
+//
+//        int count = 0;
+//
+//        try {
+//            LinkedList<String> list = new LinkedList<>();
+//            Files.lines(path).forEach((e) -> list.add(e));
+//
+//            for(String s : list) {
+//                count += TestField85.countWords(letter, s);
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return count;
+//    }
+//
+//    public static int countWords(String letter, String string) {
+//        String regExpStart = "(\\b|\\p{Punct})([";
+//        String regExpMiddleLower = letter.toLowerCase();
+//        String regExpMiddleOr = "|";
+//        String regExpMiddleUpper = letter.toUpperCase();
+//        String regExpEnd = "][A-Za-z]*)(\\b|\\p{Punct})";
+//
+//        String regexp = regExpStart.concat(regExpMiddleLower).concat(regExpMiddleUpper).concat(regExpEnd);
+//
+//        Pattern pattern = Pattern.compile(regexp);
+//        Matcher matcher = pattern.matcher(string);
+//
+//        int result = 0;
+//
+//        while(matcher.find())
+//            result++;
+//
+//        return result;
+//    }
 }
