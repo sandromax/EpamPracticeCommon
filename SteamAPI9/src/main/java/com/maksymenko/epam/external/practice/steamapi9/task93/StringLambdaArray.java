@@ -35,7 +35,7 @@ public class StringLambdaArray {
         Arrays.sort(array, (s1, s2) -> s2.compareTo(s1));
     }
 
-    public static List sortBy(String[] array, Predicate<String> predicate) {
+    public static List getOnly(String[] array, Predicate<String> predicate) {
         List<String> result = new ArrayList<>();
 
         for (String n : array) {

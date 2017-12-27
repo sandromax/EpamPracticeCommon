@@ -21,7 +21,7 @@ public class IntLambdaArray {
         Arrays.sort(array, (i1, i2) -> { return i2 - i1; });
     }
 
-    public static ArrayList sortBy(Integer[] array, Predicate<Integer> predicate) {
+    public static ArrayList getOnly(Integer[] array, Predicate<Integer> predicate) {
         ArrayList<Integer> result = new ArrayList<>();
 
         for (Integer n : array) {
