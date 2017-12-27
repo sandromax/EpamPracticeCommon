@@ -1,7 +1,5 @@
 package com.maksymenko.epam.external.practice.steamapi9.task92;
 
-import java.util.Random;
-
 import static com.maksymenko.epam.external.practice.steamapi9.task92.IntLambdaArrayCompare.showArray;
 
 public class Runner92 {
